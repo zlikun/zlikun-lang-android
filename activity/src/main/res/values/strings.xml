@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Activity</string>
+    <string name="text_main_content">Hello Android !</string>
+    <string name="title_activity_net">NetActivity</string>
+</resources>

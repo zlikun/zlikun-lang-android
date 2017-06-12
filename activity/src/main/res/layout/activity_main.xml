@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zlikun.lang.MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_open_another_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开另一个Activity"/>
+
+    <!-- @string/text_main_content 表示引用一个变量，位于res/values/strings.xml中 -->
+    <TextView
+        android:id="@+id/text_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/text_main_content"/>
+
+</LinearLayout>

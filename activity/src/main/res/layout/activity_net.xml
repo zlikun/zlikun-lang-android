@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 线性布局：https://developer.android.google.cn/guide/topics/ui/layout/linear.html -->
+<!-- orientation 属性用于控制布局走向：vertical(垂直)、horizontal(水平) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.zlikun.lang.NetActivity">
+
+    <!-- @+id/xxx + 表示定义一个ID -->
+    <!-- layout_width / layout_height 用于设置宽高，可选取值：wrap_content表示包裹内容、match_parent表示匹配父容器、0dp表示自定义单位长度(宽高) -->
+    <!-- layout_width 值为0dp时，使用layout_weight切分容器 -->
+    <EditText
+        android:id="@+id/et_url"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/btn_request"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="打开网址"/>
+
+</LinearLayout>
