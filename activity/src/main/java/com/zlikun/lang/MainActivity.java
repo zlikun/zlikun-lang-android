@@ -1,10 +1,16 @@
 package com.zlikun.lang;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import com.zlikun.lang.domain.UserInfo;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Activity 生命周期
@@ -48,8 +54,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(MainActivity.class.toString() ,"打开另一个Activity ...") ;
-                // 启动一个Activity，Activity继承了Context，所以第一个参数可以使用当前Activity对象，第二个参数表示要打开的Activity
-                startActivity(new Intent(MainActivity.this ,NetActivity.class));
+                // 启动一个Activity，Activity继承了Context，所以Intent构造方法第一个参数可以使用当前Activity对象，第二个参数表示要打开的Activity
+                Intent intent = new Intent(MainActivity.this ,NetActivity.class) ;
+                // 使用Intent传递值
+                // 1、使用#putExtra()重载方法，添加多种类型值
+                intent.putExtra("name" ,"zlikun") ;
+                intent.putExtra("age" ,120) ;
+                // 传递Object参数，对象必须实现 java.io.Serializable 接口，或 android.os.Parcelable 接口
+                intent.putExtra("user" , new UserInfo("jinx" ,"12100000000" ,new Date())) ;
+                // 使用Bundle，传递数据包
+                Bundle bundle = new Bundle() ;
+                bundle.putString("name2" ,"kevin");
+                bundle.putInt("age2" ,18);
+                // Bundle也可以存入一个Bundle
+                bundle.putBundle("bundle" ,new Bundle());
+                // 2、使用#putExtras()传递一个Bundle
+                intent.putExtras(bundle) ;
+
+                startActivity(intent);
             }
         });
 
