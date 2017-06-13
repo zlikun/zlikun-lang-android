@@ -7,10 +7,16 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_open_another_activity"
+        android:id="@+id/btn_open_aty_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="打开另一个Activity"/>
+        android:text="打开第一个Activity"/>
+
+    <Button
+        android:id="@+id/btn_open_aty_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开第二个Activity"/>
 
     <!-- @string/text_main_content 表示引用一个变量，位于res/values/strings.xml中 -->
     <TextView

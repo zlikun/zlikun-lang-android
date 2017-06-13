@@ -1,7 +1,6 @@
 package com.zlikun.lang;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.view.View;
 
 import com.zlikun.lang.domain.UserInfo;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -49,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
         // findViewById() 所有的可视化控件都可以用该方法获取(可能需要强转类型)
         // setOnClickListener() 用于设置点击事件
-        findViewById(R.id.btn_open_another_activity).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.btn_open_aty_1).setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                Log.i(MainActivity.class.toString() ,"打开另一个Activity ...") ;
+                Log.i(MainActivity.class.toString() ,"打开第一个Activity ...") ;
                 // 启动一个Activity，Activity继承了Context，所以Intent构造方法第一个参数可以使用当前Activity对象，第二个参数表示要打开的Activity
                 Intent intent = new Intent(MainActivity.this ,NetActivity.class) ;
                 // 使用Intent传递值
@@ -70,11 +68,37 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putBundle("bundle" ,new Bundle());
                 // 2、使用#putExtras()传递一个Bundle
                 intent.putExtras(bundle) ;
-
+                // 启动一个Activity
                 startActivity(intent);
             }
         });
 
+        // 打开另一个Activity，并接收返回值
+        findViewById(R.id.btn_open_aty_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(MainActivity.class.toString() ,"打开第二个Activity ...") ;
+
+                Intent intent = new Intent(MainActivity.this ,InputActivity.class) ;
+                // 启动一个Activity并接收其返回值，参考：#onActivityResult()方法 实现
+                // 传入一个请求状态码(第二个参数)
+                startActivityForResult(intent ,0);
+            }
+        });
+
+    }
+
+    /**
+     * 接收Activity返回状态码及信息
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i(MainActivity.class.toString() ,String.format("Activity返回信息：requestCode = %d ,resultCode = %d ,data = %s"
+                ,requestCode ,resultCode ,data.getStringExtra("text"))) ;
     }
 
     @Override
