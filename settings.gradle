@@ -1,1 +1,1 @@
-include ':app', ':activity', ':launch'
+include ':app', ':activity', ':launch', ':intent'

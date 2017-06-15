@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.zlikun.lang.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,11 +17,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NetActivity"
+            android:name="com.zlikun.lang.NetActivity"
             android:label="@string/title_activity_net"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".InputActivity"
+            android:name="com.zlikun.lang.InputActivity"
             android:label="@string/title_activity_input"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
